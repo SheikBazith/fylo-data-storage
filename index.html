@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Fylo data storage component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: hsl(229, 57%, 11%);
+      font-family: 'Raleway',sans-serif;
+      background-image: url(images/bg-desktop.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+   
+    }
+
+    main{
+      display: grid;
+      grid-template-columns: 340px 550px;
+      grid-template-rows: 10px 160px;
+      grid-template-areas: 
+      "lcard . "
+      "lcard rcard ";
+      gap: 2rem;
+    }
+
+    section{
+      background-color: hsl(228, 56%, 26%);
+
+    }
+
+    .left-card{
+      grid-area: lcard;
+      border-radius: 10px 100px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 2.2rem;
+      gap: 1.3rem;
+      justify-content: flex-start;
+    }
+
+    .left-card > img {
+      width: 140px;
+    }
+
+    .icons{
+      display: grid;
+      place-items: center;
+      grid-template-columns: 50px 50px 50px;
+      gap: 1rem;
+      
+    }
+
+    button{
+      background-color: hsl(229, 57%, 11%);
+      height: 50px;
+      width: 50px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .right-card{
+      grid-area: rcard;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 2rem;
+      padding-right: 3rem;
+      gap: 0.5rem;
+      border-radius: 15px;
+    }
+
+    .right-card > p {
+      color: white;
+      font-size: 18px;
+
+    }
+
+    em{
+      font-weight: bolder;
+      font-style: normal;
+    }
+
+    .progress-bar{
+     
+      background-color: hsl(229, 57%, 11%);
+      border-radius: 20px;
+    }
+
+    .progress-bar > div {
+     background-image: linear-gradient(to right, hsl(6, 100%, 80%),  hsl(335, 100%, 65%));
+      margin: 0.1rem;
+      border-radius: 20px;
+      width: 70%;
+    }
+
+    .progress-bar > div > div {
+      padding: 0.5rem;
+      border-radius: 20px;
+      margin-left: 95%;
+      background-color: white;
+    }
+
+    .storage{
+      display: flex;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .bubble {
+    margin-left: 22rem;
+    padding: 0.5rem;
+    position: relative;
+    background-color: white;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    width: 150px;
+    height: 60px;
+    color: black;
+    border-radius: 5px;
+}
+.bubble:after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: 120px;
+  border-top: 20px solid blue;
+  border-top-color: white; 
+  border-left: 30px solid transparent;
+}
+
+    span{
+      font-size: 12px;
+      font-weight: 400;
+      color: black;
+    }
+
+    @media (max-width: 600px){
+      body{
+        background-image: url(images/bg-mobile.png);
+        background-size: cover;
+        background-position: center;
+      }
+
+      main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left-card{
+        width:90%;
+        
+      }
+      .right-card{
+        padding: 3rem;
+        width:90%;
+      }
+
+      .bubble{
+        position: relative;
+        margin: 0;
+        bottom: 4rem;
+        
+      }
+
+      .bubble:after{
+        content: none;
+      }
+    }
+
+
+    
+  </style>
+</head>
+<body>
+
+  <main>
+    <section class="left-card">
+        <img src="images/logo.svg">
+        <div class="icons">
+          <button><img src="images/icon-document.svg" alt=""></button>
+          <button><img src="images/icon-folder.svg" alt=""></button>
+          <button><img src="images/icon-upload.svg" alt=""></button>
+        </div>
+    </section>
+     
+
+    <section class="right-card">
+      <p>You’ve used <em>815 GB</em> of your storage</p>
+      <div class="progress-bar">
+        <div>
+          <div></div>
+        </div>
+      </div>
+      <div class="storage">
+        <p>0 GB</p>
+        <p>1000 GB</p>
+      </div>
+    </section>
+    <div class="bubble"><p>185 <span>GB Left</span></p></div>
+  </main>
+
+</body>
+</html>
